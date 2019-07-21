@@ -1,0 +1,3 @@
+[submodule "Bookcase/CBETA/figures"]
+	path = Bookcase/CBETA/figures
+	url = https://github.com/cbeta-git/CBR2X-figures.git
