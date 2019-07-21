@@ -1,3 +1,6 @@
 [submodule "Bookcase/CBETA/figures"]
 	path = Bookcase/CBETA/figures
 	url = https://github.com/cbeta-git/CBR2X-figures.git
+[submodule "Bookcase/CBETA/gaiji-CB"]
+	path = Bookcase/CBETA/gaiji-CB
+	url = https://github.com/cbeta-org/gaiji-CB.git
