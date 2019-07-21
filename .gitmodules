@@ -4,3 +4,6 @@
 [submodule "Bookcase/CBETA/gaiji-CB"]
 	path = Bookcase/CBETA/gaiji-CB
 	url = https://github.com/cbeta-org/gaiji-CB.git
+[submodule "Bookcase/CBETA/help"]
+	path = Bookcase/CBETA/help
+	url = https://github.com/cbeta-git/CBR2X-help.git
