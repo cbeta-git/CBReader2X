@@ -7,7 +7,7 @@
 	<identifier id="BookId">CBETA</identifier>
 	<subject>佛教典籍</subject>
 	<publisher>CBETA</publisher>
-	<date>2020-01-03</date>
+	<date>2020-01-04</date>
 	<cover src="cover.png"/>
 	<catalog src="catalog.txt"/>
 	<nav src="menu_nav.xhtml"/>
