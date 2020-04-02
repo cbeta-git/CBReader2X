@@ -150,7 +150,7 @@ function ShowPara()
 	$("p.headname2").css("margin-left","2em");
 	$("p.headname3").css("margin-left","3em");
 	$("p.headname4").css("margin-left","4em");
-	$("p.byline").css("margin-left","4em");
+	$("p.byline").css("text-align","right");
 
 	$(".linehead").css("display", "none");
 	$(".line_space").css("display", "none");
