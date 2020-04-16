@@ -1,15 +1,38 @@
 var NoteType;	// orig:原書校註, cbeta:CBETA校註, none:無校註
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2019.Q4";	// 引用複製的年份
+var YearQ = "2020.Q1";	// 引用複製的年份
+var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 //var FirstRun = false;	// 判斷是不是第一次執行
 //var noword = "〔－〕";
+
+// 前進至最後儲存的A標記位置
+function gotoLeftTop()
+{
+	$("a[name='" + leftTopATagName + "']").each(function(){
+		this.scrollIntoView();
+		return false;
+	});
+}
+
+// 取得畫面左上角A標記的name屬性
+function getLeftTopATagName()
+{
+	$("a[name]").each(function() {
+		var data = this.getBoundingClientRect();
+		var y = data.top;
+		if (y >= 0) {
+			leftTopATagName = $(this).attr("name");
+			return false;
+		}
+	});
+}
 
 // 原書格式
 function ShowLine()
 {
 	if(DisplayType == "line") return;
-
+	getLeftTopATagName();
 	// 先還原 <br>
 	$('span.lb_br').replaceWith(function(){
 		let myhtml = this.outerHTML;
@@ -69,6 +92,7 @@ function ShowLine()
 	
 	$("a.note_orig,a.note_mod,a.note_add,a.note_star,a.note_star_removed").attr("onclick","return ShowCollation($(this));");
 	DisplayType = "line";
+	gotoLeftTop();
 }
 
 // 將指定標記轉成 span
@@ -92,8 +116,8 @@ function Tag2Span(tagname)
 // 段落格式
 function ShowPara()
 {
-	//if(DisplayType == "para") return;
-
+	if(DisplayType == "para") return;
+	getLeftTopATagName();
 	// 先把 <span> 還原 <p> <div> ...等標記
 	Span2Tag("ul");// 先 ul 後 li , 順序不可錯亂
 	Span2Tag("li");// 先 ul 後 li , 順序不可錯亂
@@ -164,6 +188,7 @@ function ShowPara()
 	
 	$("a.note_orig,a.note_mod,a.note_add,a.note_star,a.note_star_removed").attr("onclick","return ShowCollation($(this));");
 	DisplayType = "para";
+	gotoLeftTop();
 }
 
 // 將 span 轉成指定標記
