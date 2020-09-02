@@ -14,5 +14,5 @@
 	<spine src="spine.txt"/>
 	<bookdata src="bookdata.txt"/>
 	<javascript src="cbreader.js"/>
-	<version>0.5.5.0</version>
+	<version>0.5.5.1</version>
 </metadata>
