@@ -7,12 +7,12 @@
 	<identifier id="BookId">CBETA</identifier>
 	<subject>佛教典籍</subject>
 	<publisher>CBETA</publisher>
-	<date>2020-11-14</date>
+	<date>2020-11-15</date>
 	<cover src="cover.png"/>
 	<catalog src="catalog.txt"/>
 	<nav src="menu_nav.xhtml"/>
 	<spine src="spine.txt"/>
 	<bookdata src="bookdata.txt"/>
 	<javascript src="cbreader.js"/>
-	<version>0.5.6.0</version>
+	<version>0.5.7.0</version>
 </metadata>
