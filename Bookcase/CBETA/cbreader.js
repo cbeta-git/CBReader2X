@@ -1,7 +1,7 @@
 var NoteType;	// orig:原書校註, cbeta:CBETA校註, none:無校註
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2020.Q4";	// 引用複製的年份
+var YearQ = "2021.Q1";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 //var FirstRun = false;	// 判斷是不是第一次執行
 //var noword = "〔－〕";
@@ -157,7 +157,15 @@ function ShowPara()
 	$("br.para_br").css("display","inline");
 	$("table").css("border-collapse","collapse");
 	$("table").css("border-style","solid");
-	$("td").css("padding","10px");
+	$("td").css("padding","0.5em");
+	$("td.pl-1").css("padding-left","1.5em");
+	$("td.pl-2").css("padding-left","2.5em");
+	$("td.pl-3").css("padding-left","3.5em");
+	$("td.pl-4").css("padding-left","4.5em");
+	$("td.pl-5").css("padding-left","5.5em");
+	$("td.pl-6").css("padding-left","6.5em");
+	$("td.pl-7").css("padding-left","7.5em");
+	$("td.pl-8").css("padding-left","8.5em");
 	
 	/* 不用了
 	$("table").css("display","table");
