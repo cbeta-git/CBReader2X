@@ -41,6 +41,7 @@ function ShowLine()
 	});
 
 	$("p").css("margin-left","0em");
+	$("ul").css("margin-left","0em");
 	$("div").css("margin-left","0em");
 	$("table").css("margin-left","0em");
 	$("div").not("#div_notearea,#div_notearea_box,#div_toolbar,#CollationList").css("display","inline");
@@ -136,6 +137,10 @@ function ShowPara()
 	Span2Tag("p");
  
 	$("p").each(function() {
+		var mar = $(this).attr("data-margin-left");
+		$(this).css("margin-left",mar);
+	});
+	$("ul").each(function() {
 		var mar = $(this).attr("data-margin-left");
 		$(this).css("margin-left",mar);
 	});
