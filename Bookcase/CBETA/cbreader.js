@@ -1,7 +1,7 @@
 var NoteType;	// orig:原書校註, cbeta:CBETA校註, none:無校註
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2021.Q2";	// 引用複製的年份
+var YearQ = "2021.Q3";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 //var FirstRun = false;	// 判斷是不是第一次執行
 //var noword = "〔－〕";
