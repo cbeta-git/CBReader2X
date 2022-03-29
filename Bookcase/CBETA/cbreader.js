@@ -3,6 +3,7 @@ var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
 var YearQ = "2022.Q1";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
+var ShowCollationCF;	// 判斷要不要秀出校注的 cf 資料，由網頁內提供
 //var FirstRun = false;	// 判斷是不是第一次執行
 //var noword = "〔－〕";
 
@@ -321,13 +322,19 @@ function ShowCollation($obj)
 	if(type == "orig")
 	{
 		newid = "#txt_" + id;
-		if($(newid).length > 0)
+		if($(newid).length > 0) {
 			$("#div_notearea").append("<span class='note_orig'>" + $(newid).html() + "</span>");
+		}
 		newid = newid.replace("note_orig","note_mod");
-		if($(newid).length > 0)
-			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + "</span>");
-		else
-			$("#div_notearea span.note_orig").addClass("note_mod" )
+		if($(newid).length > 0) {
+			// 加上 note cf
+			cfid = newid.replace("note_mod","note_app");
+			cfid += " div[type='cf']";
+			note_cf = GetNoteCF(cfid);
+			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
+		} else {
+			$("#div_notearea span.note_orig").addClass("note_mod" );
+		}
 
 		$("#div_notearea .note_mod").hide();
 		$("#div_notearea .note_orig").show();
@@ -335,11 +342,17 @@ function ShowCollation($obj)
 	else if(type == "mod")
 	{
 		newid = "#txt_" + id;
-		if($(newid).length > 0)
-			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + "</span>");
+		if($(newid).length > 0) {
+			// 加上 note cf
+			cfid = newid.replace("note_mod","note_app");
+			cfid += " div[type='cf']";
+			note_cf = GetNoteCF(cfid);
+			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
+		}
 		newid = newid.replace("note_mod","note_orig");
-		if($(newid).length > 0)
-			$("#div_notearea").append("<span class='note_orig'>" + $(newid).html() + "</span>");	
+		if($(newid).length > 0) {
+			$("#div_notearea").append("<span class='note_orig'>" + $(newid).html() + "</span>");
+		}
 
 		$("#div_notearea .note_orig").hide();
 		$("#div_notearea .note_mod").show();
@@ -348,8 +361,13 @@ function ShowCollation($obj)
 	{
 		// 這才是現成的版本, 底下自行產生的版本先留著
 		newid = "#txt_" + id;
-		if($(newid).length > 0)
-			$("#div_notearea").append("<span class='note_add'>" + $(newid).html() + "</span>");
+		if($(newid).length > 0) {
+			// 加上 note cf
+			cfid = newid.replace("note_add","note_app");
+			cfid += " div[type='cf']";
+			note_cf = GetNoteCF(cfid);
+			$("#div_notearea").append("<span class='note_add'>" + $(newid).html() + note_cf + "</span>");
+		}
 		$("#div_notearea .note_add").show();
 
 		/* 這是自行產生的版本, 要換成上面讀取現成的版本
@@ -387,13 +405,19 @@ function ShowCollation($obj)
 		newid = "#txt_" + id;	// #txt_note_star_0001002-1
 		newid = newid.replace(/\-\d+/,"");	// #txt_note_star_0001002
 		newid = newid.replace("note_star","note_orig");
-		if($(newid).length > 0)
+		if($(newid).length > 0) {
 			$("#div_notearea").append("<span class='note_orig'>" + $(newid).html() + "</span>");
+		}
 		newid = newid.replace("note_orig","note_mod");
-		if($(newid).length > 0)
-			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + "</span>");
-		else
-			$("#div_notearea span.note_orig").addClass("note_mod" )
+		if($(newid).length > 0) {
+			// 加上 note cf
+			cfid = newid.replace("note_mod","note_app");
+			cfid += " div[type='cf']";
+			note_cf = GetNoteCF(cfid);
+			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
+		} else {
+			$("#div_notearea span.note_orig").addClass("note_mod");
+		}
 
 		newid = newid.replace("#txt_","#");
 		newid = newid.replace("note_mod","note_orig");
@@ -435,6 +459,15 @@ function ShowCollation($obj)
 
 	$obj.focus();
 	return false;
+}
+// 取得 note cf 文字
+function GetNoteCF(cfid)
+{
+	note_cf = "";			
+	if($(cfid).length > 0) {
+		note_cf = "<span class='note_cf'>(cf. " + $(cfid).html() + ")</span>";
+	}
+	return note_cf;
 }
 // 選擇用字
 function ShowSelectWord($obj,type)
@@ -519,14 +552,23 @@ function CiteCopy()
 		{
 			selection = document.selection;
 			range = selection.createRange();
-			if(range.text == '') throw "請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.";
+			if(range.text == '') {
+				//throw "請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.";
+				alert("請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.");
+				return false;
+			}
 		}
 		else 
 		{
 			selection = document.getSelection();
-			if(selection.toString() == '') throw "請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.";
+			if(selection.toString() == '') {
+				//throw "請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.";
+				alert("請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.");
+				return false;
+			}
 			range = selection.getRangeAt(0);
 		}
+		return true;
 	}
 
 	// 取得標準行首資訊
@@ -689,8 +731,7 @@ function CiteCopy()
 		note_list.each(function() {
 			var id = $(this).attr('id');
 			var cls = $(this).attr('class');
-			if(cls == 'note_star' || cls == 'note_star_removed')
-			{
+			if(cls == 'note_star' || cls == 'note_star_removed') {
 				// 星號處理法
 				// <a id="note_star_0001004-1" class="note_star" href="" onclick="return false;">[＊]</a>
 				// <a id="note_orig_0001004" class="note_orig" href="" onclick="return false;">[4]</a>
@@ -702,29 +743,43 @@ function CiteCopy()
 				id_num = id_num.replace(/^0*/,"");	// 去除前面的 0
 				num = "[＊" + id_num + "]";	// [＊4-1]
 
-				if(NoteType == "orig")
-				{
+				if(NoteType == "orig") {
 					newid = newid.replace(/_star_/,"_orig_");	// "note_orig_0001004"
 					text = $(newid).html();
-				}
-				else if(NoteType == "cbeta")
-				{
+				} else if(NoteType == "cbeta") {
 					newid = newid.replace(/_star_/,"_mod_");	// "note_mod_0001004"
+					cfid = newid.replace("_mod_","_app_");
 					// 如果沒有校註, 可能是沒有 mod , 換成 orig 試試
-					if($(newid).length == 0)
-					{
+					if($(newid).length == 0) {
 						newid = newid.replace(/_mod_/,"_orig_"); // "note_orig_0001004"
 					}
 					text = $(newid).html();
+
+					// 判斷是否加上 note cf
+					if(ShowCollationCF) {
+						cfid += " div[type='cf']";
+						note_cf = GetNoteCF(cfid);
+						text += note_cf;
+					}
 				}
-			}
-			else
-			{
+			} else {
 				var newid = "#txt_" + id;
 				num = $(this).text();
 				text = $(newid).html();
+
+				if(NoteType == "cbeta") {
+					// 判斷是否加上 note cf
+					if(ShowCollationCF) {
+						cfid = newid.replace(/_mod_|_add_/,"_app_");
+						cfid += " div[type='cf']";
+						note_cf = GetNoteCF(cfid);
+						text += note_cf;
+					}
+				}
 			}
-			if(text.slice(-1) != "。") text += "。";
+			if(text.slice(-1) != "。") {
+				text += "。";
+			}
 			note_text = note_text + num + text;
 		});
 
@@ -1000,7 +1055,10 @@ function CiteCopy()
 	// 引用複製
 	this.go = function()
 	{
-		_get_range();
+		if(_get_range() == false) {
+			return;
+		}
+
 		var select_htm = _get_select_htm();
 		var text = select_htm.text();
 		// xml 有 &amp; &lt;, 轉成 html 預設是 & < , CBR 程式讓 html 依然保持 &amp; &lt;
