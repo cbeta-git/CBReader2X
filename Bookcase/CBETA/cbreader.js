@@ -329,7 +329,7 @@ function ShowCollation($obj)
 		if($(newid).length > 0) {
 			// 加上 note cf
 			cfid = newid.replace("note_mod","note_app");
-			cfid += " div[type='cf']";
+			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
 			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
 		} else {
@@ -345,7 +345,7 @@ function ShowCollation($obj)
 		if($(newid).length > 0) {
 			// 加上 note cf
 			cfid = newid.replace("note_mod","note_app");
-			cfid += " div[type='cf']";
+			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
 			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
 		}
@@ -364,7 +364,7 @@ function ShowCollation($obj)
 		if($(newid).length > 0) {
 			// 加上 note cf
 			cfid = newid.replace("note_add","note_app");
-			cfid += " div[type='cf']";
+			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
 			$("#div_notearea").append("<span class='note_add'>" + $(newid).html() + note_cf + "</span>");
 		}
@@ -412,7 +412,7 @@ function ShowCollation($obj)
 		if($(newid).length > 0) {
 			// 加上 note cf
 			cfid = newid.replace("note_mod","note_app");
-			cfid += " div[type='cf']";
+			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
 			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
 		} else {
@@ -757,7 +757,7 @@ function CiteCopy()
 
 					// 判斷是否加上 note cf
 					if(ShowCollationCF) {
-						cfid += " div[type='cf']";
+						cfid += ">div[type='cf']";
 						note_cf = GetNoteCF(cfid);
 						text += note_cf;
 					}
@@ -771,7 +771,7 @@ function CiteCopy()
 					// 判斷是否加上 note cf
 					if(ShowCollationCF) {
 						cfid = newid.replace(/_mod_|_add_/,"_app_");
-						cfid += " div[type='cf']";
+						cfid += ">div[type='cf']";
 						note_cf = GetNoteCF(cfid);
 						text += note_cf;
 					}
@@ -1113,7 +1113,7 @@ function update_notearea()
 // 初始畫面
 $(document).ready(function(){
 	// 上方功能列
-	$tool_div = "<div id=\"div_toolbar\"  align=\"right\" style=\"position:fixed; border:1px; margin:10px; padding:5px; background-color:#57adad; writing-mode: lr-tb; right:0px; top:0px;\">\n"
+	$tool_div = "<div id=\"div_toolbar\"  align=\"right\" style=\"position:fixed; border:1px; margin:10px; padding:5px; background-color:#57adad; writing-mode: lr-tb; right:0px; top:30px;\">\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"行\" title=\"原書格式呈現\"  onclick=\"ShowLine()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"段\" title=\"段落格式呈現\" onclick=\"ShowPara()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"行首\" title=\"行首顯示切換\" onclick=\"ToggleLineHead()\"/>\n"
