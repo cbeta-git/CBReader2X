@@ -514,12 +514,12 @@ function MenuToggle()
 	if($("input.menuitem").css("display") == "none")
 	{
 		$("input.menuitem").show();
-		$("input#menutogg").val("→");
+		$("input#menutogg").val("▸");
 	}
 	else
 	{
 		$("input.menuitem").hide();
-		$("input#menutogg").val("←");
+		$("input#menutogg").val("◂");
 	}
 }
 // 關閉校註區
@@ -780,7 +780,8 @@ function CiteCopy()
 			if(text.slice(-1) != "。") {
 				text += "。";
 			}
-			note_text = note_text + num + text;
+			text += "　";
+			note_text = note_text + num + " " + text;
 		});
 
 		note_text = note_text.replace(/<font face=['"]siddam['"]>.*?<\/font>/g,"◇");
@@ -1124,9 +1125,9 @@ $(document).ready(function(){
 	+ "<input class=\"menuitem\" type=\"button\" value=\"無\" title=\"無校註\" onclick=\"NoCollation()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"原\" title=\"原書校註+原書用字\"  onclick=\"OrigCollation()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"CB\" title=\"CB校註+CB用字\"  onclick=\"CBETACollation()\"/>\n"
-	+ "<input class=\"_menuitem\" type=\"button\" value=\"複\" title=\"一般複製\" style=\"background-color:#ffe59b; margin-left:5px;\" onclick=\"NormalCopy()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"複\" title=\"一般複製\" style=\"background-color:#ffe59b; margin-left:5px;\" onclick=\"NormalCopy()\"/>\n"
 	+ "<input class=\"_menuitem\" type=\"button\" value=\"引\" title=\"引用複製\" style=\"background-color:#ffe59b;\" onclick=\"CBCopy.go()\"/>\n"
-	+ "<input id=\"menutogg\" type=\"button\" value=\"←\" title=\"功能列\" style=\"background-color:yellow;\" onclick=\"MenuToggle()\"/>\n"
+	+ "<input id=\"menutogg\" type=\"button\" value=\"◂\" title=\"功能列\" style=\"background-color:yellow;width:20px;text-align:center;padding:0px;\" onclick=\"MenuToggle()\"/>\n"
 	+ "</div>";
 	// 下方校註區
 	$note_div = "<div id=\"div_notearea_box\" style=\"position:fixed; border:1px; margin:10px; padding:10px; background-color:rgb(31, 119, 29); right:0px; bottom:0px; width:655px; height:150px; writing-mode: lr-tb; display:none;\">"
