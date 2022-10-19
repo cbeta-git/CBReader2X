@@ -319,8 +319,7 @@ function ShowCollation($obj)
 	else if(id.indexOf("note_add") >= 0) type = "add";	// CBETA 新增校註或修訂
 	else if(id.indexOf("note_star") >= 0) type = "star";	// 星號校註
 
-	if(type == "orig")
-	{
+	if(type == "orig") {
 		newid = "#txt_" + id;
 		if($(newid).length > 0) {
 			$("#div_notearea").append("<span class='note_orig'>" + $(newid).html() + "</span>");
@@ -331,7 +330,8 @@ function ShowCollation($obj)
 			cfid = newid.replace("note_mod","note_app");
 			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
-			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
+			note_key = GetNoteKey(newid);
+			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + note_key + "</span>");
 		} else {
 			$("#div_notearea span.note_orig").addClass("note_mod" );
 		}
@@ -339,15 +339,18 @@ function ShowCollation($obj)
 		$("#div_notearea .note_mod").hide();
 		$("#div_notearea .note_orig").show();
 	}
-	else if(type == "mod")
-	{
+	else if(type == "mod") {
 		newid = "#txt_" + id;
 		if($(newid).length > 0) {
 			// 加上 note cf
 			cfid = newid.replace("note_mod","note_app");
 			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
-			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
+
+			// 檢查有沒有 note_key 屬性
+			note_key = GetNoteKey(newid);
+
+			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + note_key + "</span>");
 		}
 		newid = newid.replace("note_mod","note_orig");
 		if($(newid).length > 0) {
@@ -357,8 +360,7 @@ function ShowCollation($obj)
 		$("#div_notearea .note_orig").hide();
 		$("#div_notearea .note_mod").show();
 	}
-	else if(type == "add")
-	{
+	else if(type == "add") {
 		// 這才是現成的版本, 底下自行產生的版本先留著
 		newid = "#txt_" + id;
 		if($(newid).length > 0) {
@@ -366,7 +368,11 @@ function ShowCollation($obj)
 			cfid = newid.replace("note_add","note_app");
 			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
-			$("#div_notearea").append("<span class='note_add'>" + $(newid).html() + note_cf + "</span>");
+			
+			// 檢查有沒有 note_key 屬性
+			note_key = GetNoteKey(newid);
+
+			$("#div_notearea").append("<span class='note_add'>" + $(newid).html() + note_cf + note_key + "</span>");
 		}
 		$("#div_notearea .note_add").show();
 
@@ -400,8 +406,7 @@ function ShowCollation($obj)
 		*/
 
 	}
-	else if(type == "star")
-	{
+	else if(type == "star") {
 		newid = "#txt_" + id;	// #txt_note_star_0001002-1
 		newid = newid.replace(/\-\d+/,"");	// #txt_note_star_0001002
 		newid = newid.replace("note_star","note_orig");
@@ -414,7 +419,8 @@ function ShowCollation($obj)
 			cfid = newid.replace("note_mod","note_app");
 			cfid += ">div[type='cf']";
 			note_cf = GetNoteCF(cfid);
-			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + "</span>");
+			note_key = GetNoteKey(newid);
+			$("#div_notearea").append("<span class='note_mod'>" + $(newid).html() + note_cf + note_key + "</span>");
 		} else {
 			$("#div_notearea span.note_orig").addClass("note_mod");
 		}
@@ -423,13 +429,11 @@ function ShowCollation($obj)
 		newid = newid.replace("note_mod","note_orig");
 		if($(newid).length > 0)
 		{
-			if($(newid).css("display") == "inline")	// 目前呈現 orig
-			{
+			if($(newid).css("display") == "inline") {	// 目前呈現 orig
 				$("#div_notearea .note_mod").hide();
 				$("#div_notearea .note_orig").show();
 			}
-			else
-			{
+			else {
 				$("#div_notearea .note_orig").hide();
 				$("#div_notearea .note_mod").show();
 			}
@@ -469,6 +473,18 @@ function GetNoteCF(cfid)
 	}
 	return note_cf;
 }
+
+// 取得連結校注考證資料庫
+function GetNoteKey(id)
+{
+	note_key = $(id).attr("note_key");
+	if (note_key != undefined) {
+		note_key = "<br><a href='' target='_blank' onclick='var active = new ActiveXObject(\"WScript.Shell\");activeX = active.Run(\"https://www.cbeta.org/revised_research.php?notekey=" + note_key + "\");return false;'>CBETA 校注考證資料庫</a>" + "<br><a href='https://www.cbeta.org/revised_research.php?notekey=" + note_key + "' target='_blank'>(IE)</a>";
+		return note_key;
+	}
+	return "";
+}
+
 // 選擇用字
 function ShowSelectWord($obj,type)
 {
