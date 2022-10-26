@@ -479,7 +479,15 @@ function GetNoteKey(id)
 {
 	note_key = $(id).attr("note_key");
 	if (note_key != undefined) {
-		note_key = "<br><a href='' target='_blank' onclick='var active = new ActiveXObject(\"WScript.Shell\");activeX = active.Run(\"https://www.cbeta.org/revised_research.php?notekey=" + note_key + "\");return false;'>CBETA 校注考證資料庫</a>" + "<br><a href='https://www.cbeta.org/revised_research.php?notekey=" + note_key + "' target='_blank'>(IE)</a>";
+		if (window.navigator.userAgent.indexOf("Mac") != -1) {
+				// Mac 版
+				// note_key = "<br><a href='https://www.cbeta.org/revised_research.php?notekey=" + note_key + "' target='_blank'>CBETA 校訂考證資料庫</a>";
+				note_key = "<br><a href='' onclick=\"window.webkit.messageHandlers.openNoteKey.postMessage('https://www.cbeta.org/revised_research.php?notekey=" + note_key + "');return false;\">CBETA 校訂考證資料庫</a>";
+			} else {
+				// Windows 版
+				// note_key = "<br><a href='' target='_blank' onclick='var active = new ActiveXObject(\"WScript.Shell\");activeX = active.Run(\"https://www.cbeta.org/revised_research.php?notekey=" + note_key + "\");return false;'>CBETA 校訂考證資料庫</a>";
+				note_key = "<br><a href='' onclick=\"window.external.openNoteKey('https://www.cbeta.org/revised_research.php?notekey=" + note_key + "');return false;\">CBETA 校訂考證資料庫</a>";
+		}
 		return note_key;
 	}
 	return "";
