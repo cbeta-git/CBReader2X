@@ -41,20 +41,22 @@ function ShowLine()
 		return myhtml;
 	});
 
-	$("p").css("margin-left","0em");
-	$("ul").css("margin-left","0em");
-	$("div").css("margin-left","0em");
-	$("table").css("margin-left","0em");
-	$("div").not("#div_notearea,#div_notearea_box,#div_toolbar,#CollationList").css("display","inline");
+	// .not("#div_notearea_box p,#CollationList div.txt_note p")
+	// 以上格式是為了在校勘區的校注文字不要受到原書、段落格式切換影響，也就是校注內容皆是段落格式
+	$("p").not("#div_notearea_box p,#CollationList div.txt_note p").css("margin-left","0em");
+	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("margin-left","0em");
+	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("margin-left","0em");
+	$("table").not("#div_notearea_box table,#CollationList div.txt_note table").css("margin-left","0em");
+	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("display","inline");
 	$("#CollationList").css("display","none");	// 校註不要呈現
-	$("p").css("display","inline");
-	$("ul").css("display","inline");
-	$("ul").css("padding-left","0px");
-	$("li").css("display","inline");
+	$("p").not("#div_notearea_box p,#CollationList div.txt_note p").css("display","inline");
+	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("display","inline");
+	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("padding-left","0px");
+	$("li").not("#div_notearea_box li,#CollationList div.txt_note li").css("display","inline");
 	$("br.lb_br").css("display","inline");
 	$("br.para_br").css("display","none");
-	$("table").css("border-style","none");
-	$("td").css("padding","0px");
+	$("table").not("#div_notearea_box table,#CollationList div.txt_note table").css("border-style","none");
+	$("td").not("#div_notearea_box td,#CollationList div.txt_note td").css("padding","0px");
 	/*
 	$("table").css("display","inline");
 	$("table").css("line-height","2px");
@@ -67,8 +69,8 @@ function ShowLine()
 
 	$(".linehead").css("display", $(".parahead").css("display"));
 
-	$(".line_space").css("display","inline");
-	$(".para_space").css("display","none");
+	$(".line_space").not("#div_notearea_box .line_space,#CollationList div.txt_note .line_space").css("display","inline");
+	$(".para_space").not("#div_notearea_box .para_space,#CollationList div.txt_note .para_space").css("display","none");
 	
 	$(".parahead").css("display", "none");
 	$("p.juannum").css("margin-left","0em");
