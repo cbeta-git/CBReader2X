@@ -7,9 +7,6 @@
 [submodule "Bookcase/CBETA/help"]
 	path = Bookcase/CBETA/help
 	url = https://github.com/cbeta-git/CBR2X-help.git
-[submodule "Bookcase/CBETA/index"]
-	path = Bookcase/CBETA/index
-	url = https://gitlab.com/heavenchou/cbr2x-index.git
 [submodule "Bookcase/CBETA/rj-gif"]
 	path = Bookcase/CBETA/rj-gif
 	url = https://github.com/cbeta-org/rj-gif.git
