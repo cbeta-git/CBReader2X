@@ -1,7 +1,7 @@
-var NoteType;	// orig:原書校註, cbeta:CBETA校註, none:無校註
+var NoteType;	// orig:原書校注, cbeta:CBETA校注, none:無校注
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2023.Q1";	// 引用複製的年份
+var YearQ = "2023.Q3";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 var ShowCollationCF;	// 判斷要不要秀出校注的 cf 資料，由網頁內提供
 //var FirstRun = false;	// 判斷是不是第一次執行
@@ -48,7 +48,7 @@ function ShowLine()
 	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("margin-left","0em");
 	$("table").not("#div_notearea_box table,#CollationList div.txt_note table").css("margin-left","0em");
 	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("display","inline");
-	$("#CollationList").css("display","none");	// 校註不要呈現
+	$("#CollationList").css("display","none");	// 校注不要呈現
 	$("p").not("#div_notearea_box p,#CollationList div.txt_note p").css("display","inline");
 	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("display","inline");
 	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("padding-left","0px");
@@ -156,7 +156,7 @@ function ShowPara()
 		$(this).css("margin-left",mar);
 	});
 	$("div").not("#div_notearea,#div_notearea_box,#div_toolbar,#CollationList").css("display","block");
-	$("#CollationList").css("display","none");	// 校註不要呈現
+	$("#CollationList").css("display","none");	// 校注不要呈現
 	$("p").css("display","block");
 	$("li").css("display","list-item");
 	$("ul").css("display","block");
@@ -248,7 +248,7 @@ function ToggleLineHead()
 }
 
 // ------------------------------------------------------------------
-// 無校註
+// 無校注
 function NoCollation()
 {
 	$(".note_orig").hide();
@@ -259,7 +259,7 @@ function NoCollation()
 	$("#div_notearea_box").hide();
 	NoteType = "none";
 }
-// 原書校註
+// 原書校注
 function OrigCollation()
 {
 	$(".note_add").hide();
@@ -280,7 +280,7 @@ function OrigCollation()
 	});
 	NoteType = "orig";
 }
-// CBETA校註
+// CBETA校注
 function CBETACollation()
 {
 	$(".note_orig").hide();
@@ -301,11 +301,11 @@ function CBETACollation()
 	});
 	NoteType = "cbeta";
 }
-// 呈現校註
+// 呈現校注
 
 function ShowCollation($obj)
 {
-	// 呈現校註
+	// 呈現校注
 	// 同時呈現二組 
 	// <span class=note_orig>..</span>
 	// <span class=note_mod>..</span>
@@ -316,10 +316,10 @@ function ShowCollation($obj)
 	$("#div_notearea").html("");
 
 	var type;
-	if(id.indexOf("note_orig") >= 0) type = "orig";		// 原始校註
-	else if(id.indexOf("note_mod") >= 0) type = "mod";	// CBETA 修訂校註
-	else if(id.indexOf("note_add") >= 0) type = "add";	// CBETA 新增校註或修訂
-	else if(id.indexOf("note_star") >= 0) type = "star";	// 星號校註
+	if(id.indexOf("note_orig") >= 0) type = "orig";		// 原始校注
+	else if(id.indexOf("note_mod") >= 0) type = "mod";	// CBETA 修訂校注
+	else if(id.indexOf("note_add") >= 0) type = "add";	// CBETA 新增校注或修訂
+	else if(id.indexOf("note_star") >= 0) type = "star";	// 星號校注
 
 	if(type == "orig") {
 		newid = "#txt_" + id;
@@ -380,7 +380,7 @@ function ShowCollation($obj)
 
 		/* 這是自行產生的版本, 要換成上面讀取現成的版本
 
-		// 自訂的校註
+		// 自訂的校注
 		// 呈現 XX【CB】，XX【明】，〔－〕【磧砂】
 		newid = "#txt_" + id.replace("note_add","note_app");
 
@@ -442,7 +442,7 @@ function ShowCollation($obj)
 		}
 	}
 
-	// 把校註中的段首 [xxxxpxx] 移除
+	// 把校注中的段首 [xxxxpxx] 移除
 	var note_area_html = $("#div_notearea").html();
 	// <span class='parahead' style='display:none'>[0001a05] </span>
 	note_area_html = note_area_html.replace(/<span[^>]*class=['"]parahead['"].*?<\/span>/g,"");
@@ -554,7 +554,7 @@ function MenuToggle()
 		$("input#menutogg").val("◂");
 	}
 }
-// 關閉校註區
+// 關閉校注區
 function div_note_close()
 {
 	$("#div_notearea_box").hide();
@@ -694,7 +694,7 @@ function CiteCopy()
 		div.find("span.parahead").remove();
 		div.find("span.pts_head").remove();
 
-		// 移除校註符號
+		// 移除校注符號
 		if(NoteType == "none")
 		{
 			div.find("a.note_orig").remove();
@@ -750,16 +750,16 @@ function CiteCopy()
 		return div;
 	}
 
-	// 由選擇的 html 取出校註內容
+	// 由選擇的 html 取出校注內容
 	function _get_note_text(select_htm)
 	{
-		// 取出所有的校註
+		// 取出所有的校注
 		// <a id="note_orig_0001005" class="note_orig" href="" 
 		//    onclick="return false;">[5]</a>
 		var note_list = select_htm.find('a.note_orig, a.note_mod, a.note_add, a.note_star, a.note_star_removed');
-		var text = "";	// 校註內容
+		var text = "";	// 校注內容
 		var num = "";	// [01] , [＊4-1]
-		var note_text = "";	// 全部校註
+		var note_text = "";	// 全部校注
 		note_list.each(function() {
 			var id = $(this).attr('id');
 			var cls = $(this).attr('class');
@@ -781,7 +781,7 @@ function CiteCopy()
 				} else if(NoteType == "cbeta") {
 					newid = newid.replace(/_star_/,"_mod_");	// "note_mod_0001004"
 					cfid = newid.replace("_mod_","_app_");
-					// 如果沒有校註, 可能是沒有 mod , 換成 orig 試試
+					// 如果沒有校注, 可能是沒有 mod , 換成 orig 試試
 					if($(newid).length == 0) {
 						newid = newid.replace(/_mod_/,"_orig_"); // "note_orig_0001004"
 					}
@@ -822,7 +822,7 @@ function CiteCopy()
 		note_text = note_text.replace(/<.*?>/g,""); // 移除標記
 
 		// xml 有 &amp; &lt;, 轉成 html 預設是 & < , CBR 程式讓 html 依然保持 &amp; &lt;
-		// 實際呈現會自動轉成 & <, 但引用複製需要處理校註的部份
+		// 實際呈現會自動轉成 & <, 但引用複製需要處理校注的部份
 		// 所以只有 note_text 要處理 &amp; &lt; , text 不用處理
 		
 		note_text = note_text.replace(/&amp;/g,"&");
@@ -1095,7 +1095,7 @@ function CiteCopy()
 		var select_htm = _get_select_htm();
 		var text = select_htm.text();
 		// xml 有 &amp; &lt;, 轉成 html 預設是 & < , CBR 程式讓 html 依然保持 &amp; &lt;
-		// 實際呈現會自動轉成 & <, 但引用複製需要處理校註的部份
+		// 實際呈現會自動轉成 & <, 但引用複製需要處理校注的部份
 		// 所以只有 note_text 要處理 &amp; &lt; , text 不用處理
 		var note_text = _get_note_text(select_htm);
 		// 取得標準行首資訊
@@ -1127,7 +1127,7 @@ function CiteCopy()
 	};
 }
 
-// 調整校註區大小
+// 調整校注區大小
 function update_notearea()
 {
 	var win_width = $(window).width();
@@ -1154,14 +1154,14 @@ $(document).ready(function(){
 	+ "<input class=\"menuitem\" type=\"button\" value=\"Ｕ\" title=\"缺字呈現 Unicode\" style=\"background-color:#ffe59b;\" onclick=\"GaijiShowUnicode()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"組\" title=\"缺字呈現組字式\" style=\"background-color:#ffe59b;\" onclick=\"GaijiShowDes()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"圖\" title=\"缺字呈現圖檔\" style=\"background-color:#ffe59b; margin-right:5px;\" onclick=\"GaijiShowPic()\"/>\n"
-	+ "<input class=\"menuitem\" type=\"button\" value=\"無\" title=\"無校註\" onclick=\"NoCollation()\"/>\n"
-	+ "<input class=\"menuitem\" type=\"button\" value=\"原\" title=\"原書校註+原書用字\"  onclick=\"OrigCollation()\"/>\n"
-	+ "<input class=\"menuitem\" type=\"button\" value=\"CB\" title=\"CB校註+CB用字\"  onclick=\"CBETACollation()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"無\" title=\"無校注\" onclick=\"NoCollation()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"原\" title=\"原書校注+原書用字\"  onclick=\"OrigCollation()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"CB\" title=\"CB校注+CB用字\"  onclick=\"CBETACollation()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"複\" title=\"一般複製\" style=\"background-color:#ffe59b; margin-left:5px;\" onclick=\"NormalCopy()\"/>\n"
 	+ "<input class=\"_menuitem\" type=\"button\" value=\"引\" title=\"引用複製\" style=\"background-color:#ffe59b;\" onclick=\"CBCopy.go()\"/>\n"
 	+ "<input id=\"menutogg\" type=\"button\" value=\"◂\" title=\"功能列\" style=\"background-color:yellow;width:20px;text-align:center;padding:0px;\" onclick=\"MenuToggle()\"/>\n"
 	+ "</div>";
-	// 下方校註區
+	// 下方校注區
 	$note_div = "<div id=\"div_notearea_box\" style=\"position:fixed; border:1px; margin:10px; padding:10px; background-color:rgb(31, 119, 29); right:0px; bottom:0px; width:655px; height:150px; writing-mode: lr-tb; display:none;\">"
 	+ "<input type=\"button\" value=\"X\" style=\"background-color:#ff8585;\"  title=\"關閉\" onclick=\"div_note_close()\"/>\n"
 	+ "<div id=\"div_notearea\" style=\"position:fixed; border:1px; margin:10px; padding:10px; background-color:#bedebd; right:2px; bottom:2px; width:600px; height:146px; overflow:auto;\"></div>\n"
@@ -1170,20 +1170,26 @@ $(document).ready(function(){
 	$("body").prepend($tool_div);
 	$("body").prepend($note_div);
 
-	// 設定校註視窗大小
+	// 設定校注視窗大小
 	update_notearea();
 	$(window).resize(function() {
 		update_notearea();
 	});
-	$("input.menuitem").hide();	// 先隱藏工具列
 
-	NoteType = $("body").attr("data-notetype");	// 目前呈現校註
+	if (window.navigator.userAgent.indexOf("Edg") != -1) {
+		// Windows Edge 版工具列全部隱藏
+		$("#div_toolbar").hide();
+	} else {
+		$("input.menuitem").hide();	// 先隱藏工具列
+	}
+
+	NoteType = $("body").attr("data-notetype");	// 目前呈現校注
 	if($("br.lb_br").css("display") == "inline")
 		DisplayType = "line";	// 目前是原書模式
 	else
 		DisplayType = "para";	// 目前是段落模式
 
-	// 設定校註按下會呈現的功能
+	// 設定校注按下會呈現的功能
 	//$("a.note_orig,a.note_mod,a.note_add,a.note_star,a.note_star_removed").attr("onclick","return ShowCollation($(this));");
 
 	// p , div 通通加上 data-tagname , 記錄原始的 tagname
@@ -1213,7 +1219,7 @@ function SetupDisplay()
 	if(DisplayType == "para") ShowPara();
 	else ShowLine();
 	
-	// 重新設定校註的隱藏情況
+	// 重新設定校注的隱藏情況
 	if(NoteType == "none") NoCollation();
 	else if(NoteType == "cbeta") CBETACollation();
 	else if(NoteType == "orig") OrigCollation();
