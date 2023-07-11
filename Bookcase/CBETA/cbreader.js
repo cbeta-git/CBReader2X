@@ -571,7 +571,7 @@ function CiteCopy()
 {
 	var IE = (/msie/.test(navigator.userAgent.toLowerCase())) ? true : false;	//IE9,10
 	var IE11 = (/trident/.test(navigator.userAgent.toLowerCase()) ? true:false);	//IE11
-	var edge = (/edge/.test(navigator.userAgent.toLowerCase()) ? true:false);	//edge
+	var edge = (/edge/.test(navigator.userAgent.toLowerCase()) ? true:false);	//edge(IE版的，chrome 版只有 "edg")
 	var clip_div = $("<div id='clip_div'></div>");
 	var range;
 	var selection;
@@ -586,7 +586,7 @@ function CiteCopy()
 			range = selection.createRange();
 			if(range.text == '') {
 				//throw "請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.";
-				alert("請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.");
+				//alert("請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.");
 				return false;
 			}
 		}
@@ -595,7 +595,7 @@ function CiteCopy()
 			selection = document.getSelection();
 			if(selection.toString() == '') {
 				//throw "請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.";
-				alert("請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.");
+				//alert("請選擇文章內的文字後再使用引用複製功能。\n Please markup the text first.");
 				return false;
 			}
 			range = selection.getRangeAt(0);
@@ -838,6 +838,25 @@ function CiteCopy()
 		return {vol:reg[1],sutra:reg[2],page:reg[3],col:reg[4],line:reg[5]};
 	}
 
+	// 取得品名
+	function _get_mulu(linehead)
+	{
+		// linehead : "T01n0026_p0421a21║"
+		var reg = /^(.*?n[^_]{4,5})_?p(.{7})/gi.exec(linehead);
+		var sutra = reg[1] + ".xml";
+		var page = reg[2];
+		if (typeof mulu_json === "undefined" || mulu_json[sutra] === undefined) {
+			return "";
+		}
+		var array = mulu_json[sutra];
+		for(i=array.length - 1; i>=0; i--) {
+			if(page >= array[i][0]) {
+				return "〈" + array[i][1] + "〉";
+			}
+		}
+		return "";
+	}
+
 	// 把二行資料合成一行
 	// T01, no. 1, p. 1b24
 	// T01, no. 1, p. 1b24-25
@@ -1034,17 +1053,24 @@ function CiteCopy()
 		return xz_line;
 	}
 
-	// 取得經名與卷數
+	// 取得經名
 	function _get_titla()
 	{
 		var title = $("body").attr("data-sutraname");
 		title = title.replace(/\(第.*?卷\)$/,"");
 		title = "《" + title + "》";
+		return title;
+	}
+
+	// 取得卷數
+	function _get_juan()
+	{
+		var juan = "";
 		if($("body").attr("data-totaljuan")>1)
 		{
-			title += "卷" + $("body").attr("data-juan");
+			juan += "卷" + $("body").attr("data-juan");
 		}
-		return title;
+		return juan;
 	}
 
 	// 做出隱藏的文字區域
@@ -1102,6 +1128,7 @@ function CiteCopy()
 		var linedata = _get_linedata();
 		var line_begin = _parser_linehead(linedata[0]);
 		var line_end = _parser_linehead(linedata[1]);
+		var mulu_str = _get_mulu(linedata[0]);
 		var line_str = _get_line_str(line_begin, line_end);
 		// 處理 PTS 資訊
 		var pts_str = "";
@@ -1122,7 +1149,8 @@ function CiteCopy()
 			}
 		}
 		var title = _get_titla();
-		var result = title + "：「" + text + "」(CBETA " + YearQ + ", " + line_str + xzr_str + pts_str + ")\n" + note_text;
+		var juan = _get_juan();
+		var result = title + mulu_str + juan + "：「" + text + "」(CBETA " + YearQ + ", " + line_str + xzr_str + pts_str + ")\n" + note_text;
 		_copy(result);
 	};
 }
