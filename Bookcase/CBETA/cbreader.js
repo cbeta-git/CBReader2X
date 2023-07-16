@@ -1150,7 +1150,7 @@ function CiteCopy()
 		}
 		var title = _get_titla();
 		var juan = _get_juan();
-		var result = title + mulu_str + juan + "：「" + text + "」(CBETA " + YearQ + ", " + line_str + xzr_str + pts_str + ")\n" + note_text;
+		var result = title + juan + mulu_str + "：「" + text + "」(CBETA " + YearQ + ", " + line_str + xzr_str + pts_str + ")\n" + note_text;
 		_copy(result);
 	};
 }
