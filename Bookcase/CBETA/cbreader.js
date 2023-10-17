@@ -1153,6 +1153,27 @@ function CiteCopy()
 		var result = title + juan + mulu_str + "：「" + text + "」(CBETA " + YearQ + ", " + line_str + xzr_str + pts_str + ")\n" + note_text;
 		_copy(result);
 	};
+
+	// 傳回書籤字串
+	// 傳回文字為 "T02n0099_p0001a03║所選擇的文字"
+	// 若沒有選擇，則傳回第一個行首及 tilte
+	this.get_bookmark = function()
+	{
+		if(_get_range() == false) {
+			// 沒有選擇就傳回 title 和第一個行首
+			var linedata = $('span.linehead').first().html()
+			var title = document.title
+			return linedata + title
+		} else {
+			// 傳回文字為 "T02n0099_p0001a03║所選擇的文字"
+			var select_htm = _get_select_htm();
+			var text = select_htm.text();
+			// 取得標準行首資訊
+			var linedata = _get_linedata();
+			//return linedata[0] + "," + text;
+			return linedata[0] + text;	// 傳回  T02n0099_p0001a03║所選擇的文字
+		}
+	};
 }
 
 // 調整校注區大小
