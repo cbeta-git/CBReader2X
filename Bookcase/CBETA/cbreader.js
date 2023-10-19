@@ -1168,6 +1168,7 @@ function CiteCopy()
 			// 傳回文字為 "T02n0099_p0001a03║所選擇的文字"
 			var select_htm = _get_select_htm();
 			var text = select_htm.text();
+			text = text.replaceAll("\n","");
 			// 取得標準行首資訊
 			var linedata = _get_linedata();
 			//return linedata[0] + "," + text;
