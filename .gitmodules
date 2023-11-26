@@ -19,6 +19,3 @@
 [submodule "Bookcase/CBETA/XML"]
 	path = Bookcase/CBETA/XML
 	url = https://github.com/cbeta-git/CBR2X-XML.git
-[submodule "Bookcase/CBETA/index"]
-	path = Bookcase/CBETA/index
-	url = https://gitlab.com/heavenchou/cbr2x-index2.git
