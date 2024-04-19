@@ -1,7 +1,7 @@
 var NoteType;	// orig:原書校注, cbeta:CBETA校注, none:無校注
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2023.Q4";	// 引用複製的年份
+var YearQ = "2024.R1";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 var ShowCollationCF;	// 判斷要不要秀出校注的 cf 資料，由網頁內提供
 //var FirstRun = false;	// 判斷是不是第一次執行
@@ -492,7 +492,7 @@ function GetNoteKey(id)
 			// Windows IE 版
 			func_name = "window.external.openNoteKey";
 		}
-		note_key = "<br><a href='' onclick=\"" + func_name + "('https://www.cbeta.org/revised_research.php?notekey=" + note_key + "');return false;\">CBETA 校訂考證資料庫</a>";
+		note_key = "<br><a href='' onclick=\"" + func_name + "('https://revisiondb.cbeta.org/?notekey=" + note_key + "');return false;\">CBETA 校訂考證資料庫</a>";
 
 		return note_key;
 	}
