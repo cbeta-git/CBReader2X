@@ -453,14 +453,14 @@ function ShowCollation($obj)
 	$obj.focus(function() {
 		let newid = '#' + $(this).attr('id');
 		newid = newid.replace(/mod|orig|add|star/,"app");
-		$(this).css("background-color",'lightpink');
-		$(newid).css("background-color",'lightpink');
+		$(this).addClass("note-focus");
+		$(newid).addClass("note-focus");
 	});
 	$obj.focusout(function() {
 		let newid = '#' + $(this).attr('id');
 		newid = newid.replace(/mod|orig|add|star/,"app");
-		$(this).css("background-color",'');
-		$(newid).css("background-color",'');
+		$(this).removeClass("note-focus");
+		$(newid).removeClass("note-focus");
 	});
 
 	$obj.focus();
@@ -1211,11 +1211,13 @@ $(document).ready(function(){
 	+ "<input class=\"_menuitem\" type=\"button\" value=\"引\" title=\"引用複製\" style=\"background-color:#ffe59b;\" onclick=\"CBCopy.go()\"/>\n"
 	+ "<input id=\"menutogg\" type=\"button\" value=\"◂\" title=\"功能列\" style=\"background-color:yellow;width:20px;text-align:center;padding:0px;\" onclick=\"MenuToggle()\"/>\n"
 	+ "</div>";
+
 	// 下方校注區
-	$note_div = "<div id=\"div_notearea_box\" style=\"position:fixed; border:1px; margin:10px; padding:10px; background-color:rgb(31, 119, 29); right:0px; bottom:0px; width:655px; height:150px; writing-mode: lr-tb; display:none;\">"
-	+ "<input type=\"button\" value=\"X\" style=\"background-color:#ff8585;\"  title=\"關閉\" onclick=\"div_note_close()\"/>\n"
-	+ "<div id=\"div_notearea\" style=\"position:fixed; border:1px; margin:10px; padding:10px; background-color:#bedebd; right:2px; bottom:2px; width:600px; height:146px; overflow:auto;\"></div>\n"
-	"</div>";
+
+	$note_div = "<div id=\"div_notearea_box\">"
+	+ "<input id=\"div_notearea_close\" type=\"button\" value=\"X\" title=\"關閉\" onclick=\"div_note_close()\"/>\n"
+	+ "<div id=\"div_notearea\"></div>\n"
+	+ "</div>";
 
 	$("body").prepend($tool_div);
 	$("body").prepend($note_div);
