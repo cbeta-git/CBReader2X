@@ -1228,7 +1228,7 @@ $(document).ready(function(){
 		update_notearea();
 	});
 
-	if (window.navigator.userAgent.indexOf("Edg") != -1) {
+	if ((window.navigator.userAgent.indexOf("Edg") != -1) || (window.navigator.userAgent.indexOf("Mac") != -1)) {
 		// Windows Edge 版工具列全部隱藏
 		$("#div_toolbar").hide();
 	} else {
