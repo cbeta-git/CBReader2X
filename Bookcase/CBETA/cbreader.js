@@ -1,7 +1,7 @@
 var NoteType;	// orig:原書校注, cbeta:CBETA校注, none:無校注
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2024.R3";	// 引用複製的年份
+var YearQ = "2025.R1";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 var ShowCollationCF;	// 判斷要不要秀出校注的 cf 資料，由網頁內提供
 //var FirstRun = false;	// 判斷是不是第一次執行
@@ -43,15 +43,15 @@ function ShowLine()
 
 	// .not("#div_notearea_box p,#CollationList div.txt_note p")
 	// 以上格式是為了在校勘區的校注文字不要受到原書、段落格式切換影響，也就是校注內容皆是段落格式
-	$("p").not("#div_notearea_box p,#CollationList div.txt_note p").css("margin-left","0em");
-	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("margin-left","0em");
-	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("margin-left","0em");
-	$("table").not("#div_notearea_box table,#CollationList div.txt_note table").css("margin-left","0em");
+	$("p").not("#div_notearea_box p,#CollationList div.txt_note p").css("margin-inline-start","0em");
+	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("margin-inline-start","0em");
+	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("margin-inline-start","0em");
+	$("table").not("#div_notearea_box table,#CollationList div.txt_note table").css("margin-inline-start","0em");
 	$("div").not("#div_notearea_box,#div_notearea_box div,#div_toolbar,#CollationList,#CollationList div.txt_note,#CollationList div.txt_note div").css("display","inline");
 	$("#CollationList").css("display","none");	// 校注不要呈現
 	$("p").not("#div_notearea_box p,#CollationList div.txt_note p").css("display","inline");
 	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("display","inline");
-	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("padding-left","0px");
+	$("ul").not("#div_notearea_box ul,#CollationList div.txt_note ul").css("padding-inline-start","0px");
 	$("li").not("#div_notearea_box li,#CollationList div.txt_note li").css("display","inline");
 	$("br.lb_br").css("display","inline");
 	$("br.para_br").css("display","none");
@@ -73,11 +73,11 @@ function ShowLine()
 	$(".para_space").not("#div_notearea_box .para_space,#CollationList div.txt_note .para_space").css("display","none");
 	
 	$(".parahead").css("display", "none");
-	$("p.juannum").css("margin-left","0em");
-	$("p.headname2").css("margin-left","0em");
-	$("p.headname3").css("margin-left","0em");
-	$("p.headname4").css("margin-left","0em");
-	$("p.byline").css("margin-left","0em");
+	$("p.juannum").css("margin-inline-start","0em");
+	$("p.headname2").css("margin-inline-start","0em");
+	$("p.headname3").css("margin-inline-start","0em");
+	$("p.headname4").css("margin-inline-start","0em");
+	$("p.byline").css("margin-inline-start","0em");
 	
 	// 最後把 <p> <div> 各標記 都換成 <span>
 	Tag2Span("div");
@@ -141,39 +141,39 @@ function ShowPara()
  
 	$("p").each(function() {
 		var mar = $(this).attr("data-margin-left");
-		$(this).css("margin-left",mar);
+		$(this).css("margin-inline-start",mar);
 	});
 	$("ul").each(function() {
 		var mar = $(this).attr("data-margin-left");
-		$(this).css("margin-left",mar);
+		$(this).css("margin-inline-start",mar);
 	});
 	$("div").each(function() {
 		var mar = $(this).attr("data-margin-left");
-		$(this).css("margin-left",mar);
+		$(this).css("margin-inline-start",mar);
 	});
 	$("table").each(function() {
 		var mar = $(this).attr("data-margin-left");
-		$(this).css("margin-left",mar);
+		$(this).css("margin-inline-start",mar);
 	});
 	$("div").not("#div_notearea,#div_notearea_box,#div_toolbar,#CollationList").css("display","block");
 	$("#CollationList").css("display","none");	// 校注不要呈現
 	$("p").css("display","block");
 	$("li").css("display","list-item");
 	$("ul").css("display","block");
-	$("ul").css("padding-left","40px");
+	$("ul").css("padding-inline-start","40px");
 	$("br.lb_br").css("display","none");
 	$("br.para_br").css("display","inline");
 	$("table").css("border-collapse","collapse");
 	$("table").css("border-style","solid");
 	$("td").css("padding","0.5em");
-	$("td.pl-1").css("padding-left","1.5em");
-	$("td.pl-2").css("padding-left","2.5em");
-	$("td.pl-3").css("padding-left","3.5em");
-	$("td.pl-4").css("padding-left","4.5em");
-	$("td.pl-5").css("padding-left","5.5em");
-	$("td.pl-6").css("padding-left","6.5em");
-	$("td.pl-7").css("padding-left","7.5em");
-	$("td.pl-8").css("padding-left","8.5em");
+	$("td.pl-1").css("padding-inline-start","1.5em");
+	$("td.pl-2").css("padding-inline-start","2.5em");
+	$("td.pl-3").css("padding-inline-start","3.5em");
+	$("td.pl-4").css("padding-inline-start","4.5em");
+	$("td.pl-5").css("padding-inline-start","5.5em");
+	$("td.pl-6").css("padding-inline-start","6.5em");
+	$("td.pl-7").css("padding-inline-start","7.5em");
+	$("td.pl-8").css("padding-inline-start","8.5em");
 	
 	/* 不用了
 	$("table").css("display","table");
@@ -186,10 +186,10 @@ function ShowPara()
 	*/
 	
 	$(".parahead").css("display", $(".linehead").css("display"));
-	$("p.juannum").css("margin-left","2em");
-	$("p.headname2").css("margin-left","2em");
-	$("p.headname3").css("margin-left","3em");
-	$("p.headname4").css("margin-left","4em");
+	$("p.juannum").css("margin-inline-start","2em");
+	$("p.headname2").css("margin-inline-start","2em");
+	$("p.headname3").css("margin-inline-start","3em");
+	$("p.headname4").css("margin-inline-start","4em");
 	//$("p.byline").css("text-align","right");
 
 	$(".linehead").css("display", "none");
@@ -1196,18 +1196,18 @@ function update_notearea()
 // 初始畫面
 $(document).ready(function(){
 	// 上方功能列
-	$tool_div = "<div id=\"div_toolbar\"  align=\"right\" style=\"position:fixed; border:1px; margin:10px; padding:5px; background-color:#57adad; writing-mode: lr-tb; right:0px; top:30px;\">\n"
+	$tool_div = "<div id=\"div_toolbar\"  align=\"right\" style=\"position:fixed; border:1px; margin:10px; padding:5px; background-color:#57adad; writing-mode: horizontal-tb; right:0px; top:30px;\">\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"行\" title=\"原書格式呈現\"  onclick=\"ShowLine()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"段\" title=\"段落格式呈現\" onclick=\"ShowPara()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"行首\" title=\"行首顯示切換\" onclick=\"ToggleLineHead()\"/>\n"
-	+ "<input class=\"menuitem\" type=\"button\" value=\"通\" title=\"缺字呈現通用字\" style=\"background-color:#ffe59b; margin-left:5px;\" onclick=\"GaijiShowNormal()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"通\" title=\"缺字呈現通用字\" style=\"background-color:#ffe59b; margin-inline-start:5px;\" onclick=\"GaijiShowNormal()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"Ｕ\" title=\"缺字呈現 Unicode\" style=\"background-color:#ffe59b;\" onclick=\"GaijiShowUnicode()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"組\" title=\"缺字呈現組字式\" style=\"background-color:#ffe59b;\" onclick=\"GaijiShowDes()\"/>\n"
-	+ "<input class=\"menuitem\" type=\"button\" value=\"圖\" title=\"缺字呈現圖檔\" style=\"background-color:#ffe59b; margin-right:5px;\" onclick=\"GaijiShowPic()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"圖\" title=\"缺字呈現圖檔\" style=\"background-color:#ffe59b; margin-inline-end:5px;\" onclick=\"GaijiShowPic()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"無\" title=\"無校注\" onclick=\"NoCollation()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"原\" title=\"原書校注+原書用字\"  onclick=\"OrigCollation()\"/>\n"
 	+ "<input class=\"menuitem\" type=\"button\" value=\"CB\" title=\"CB校注+CB用字\"  onclick=\"CBETACollation()\"/>\n"
-	+ "<input class=\"menuitem\" type=\"button\" value=\"複\" title=\"一般複製\" style=\"background-color:#ffe59b; margin-left:5px;\" onclick=\"NormalCopy()\"/>\n"
+	+ "<input class=\"menuitem\" type=\"button\" value=\"複\" title=\"一般複製\" style=\"background-color:#ffe59b; margin-inline-start:5px;\" onclick=\"NormalCopy()\"/>\n"
 	+ "<input class=\"_menuitem\" type=\"button\" value=\"引\" title=\"引用複製\" style=\"background-color:#ffe59b;\" onclick=\"CBCopy.go()\"/>\n"
 	+ "<input id=\"menutogg\" type=\"button\" value=\"◂\" title=\"功能列\" style=\"background-color:yellow;width:20px;text-align:center;padding:0px;\" onclick=\"MenuToggle()\"/>\n"
 	+ "</div>";
