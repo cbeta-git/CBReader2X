@@ -190,7 +190,7 @@ function ShowPara()
 	$("p.headname2").css("margin-inline-start","2em");
 	$("p.headname3").css("margin-inline-start","3em");
 	$("p.headname4").css("margin-inline-start","4em");
-	//$("p.byline").css("text-align","right");
+	$("p.byline").css("text-align","right");
 
 	$(".linehead").css("display", "none");
 	$(".line_space").css("display", "none");
