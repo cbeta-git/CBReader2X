@@ -21,7 +21,7 @@ lines.each { |line|
     file_url = file_info[2]
 
     # 檢查本地是否有相應檔案
-    if File.exist?(file_name) && File.size(file_name) == file_size
+    if File.exist?(file_name) && File.size(file_name) == file_size && file_name.include?('main')
         puts "#{file_name} 已存在且大小正確，無需下載。"
     else
         # 下載檔案
