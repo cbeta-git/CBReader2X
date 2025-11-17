@@ -1,7 +1,7 @@
 var NoteType;	// orig:原書校注, cbeta:CBETA校注, none:無校注
 var DisplayType;	// line:原書格式, para:段落格式
 var CBCopy = new CiteCopy();
-var YearQ = "2025.R2";	// 引用複製的年份
+var YearQ = "2025.R3";	// 引用複製的年份
 var leftTopATagName;	// 畫面中左上角 A 標記的 name 屬性
 var ShowCollationCF;	// 判斷要不要秀出校注的 cf 資料，由網頁內提供
 //var FirstRun = false;	// 判斷是不是第一次執行

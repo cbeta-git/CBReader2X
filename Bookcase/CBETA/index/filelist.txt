@@ -1,4 +1,4 @@
-wordindex.ndx,1498337,https://drive.google.com/uc?id=1y4gSqhQfWbjlGKSRJ0nS1p6e0QnOOx44&export=download
-wordindex_o.ndx,1551521,https://drive.google.com/uc?id=1A3wGQQ_j-GZF0U9bmS7kyxWFQ8yFHtOn&export=download
-main.ndx,638144367,https://drive.usercontent.google.com/download?id=1oxUvlB20T_BusOSBGjhS_LkzOSs3Kqg_&export=download&confirm=t
-main_o.ndx,644091256,https://drive.usercontent.google.com/download?id=1FfoOcr0JMJq6vP4GuOzwk6Jjp7CU4PyD&export=download&confirm=t
+wordindex.ndx,1498705,https://drive.google.com/uc?id=1MiAo8pvLMJV-s1KaUu-4FyYBZ0H90ajU&export=download
+wordindex_o.ndx,1552353,https://drive.google.com/uc?id=1vyHYpDapVHlAEeSDsQy4cVJGAEreYLeG&export=download
+main.ndx,640262069,https://drive.usercontent.google.com/download?id=1921H3Jn3y2D3KRl_p23fxoC-Bc9AtTrN&export=download&confirm=t
+main_o.ndx,646309034,https://drive.usercontent.google.com/download?id=1eqFNZjLnNZLPrmNqUny5DrYAhrfKcuYr&export=download&confirm=t
