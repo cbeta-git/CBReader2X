@@ -1,0 +1,178 @@
+[
+    {
+        "group": "字辭典工具",
+        "title": "佛光大辭典",
+        "description": "佛光大辭典",
+        "icon": "fgdict.png",
+        "source": "https://etext.fgs.org.tw/sutra_02.aspx,{seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "字辭典工具",
+        "title": "一行辭典",
+        "description": "獅子吼站一行辭典",
+        "icon": "liondict.png",
+        "source": "https://buddhaspace.org/dict/index.php?keyword={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "字辭典工具",
+        "title": "DILA 佛學術語字辭典",
+        "description": "DILA 佛學術語字辭典",
+        "icon": "diladict.png",
+        "source": "https://glossaries.dila.edu.tw/search?locale=zh-TW&term={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "字辭典工具",
+        "title": "異體字字典",
+        "description": "異體字字典",
+        "icon": "moedict.png",
+        "source": "https://dict.variants.moe.edu.tw/search.jsp?QTP=1&WORD={selechar}",
+        "runMode": ""
+    },
+    {
+        "group": "字辭典工具",
+        "title": "漢文字詞資訊網",
+        "description": "CBETA 漢文字詞資訊網",
+        "icon": "次世代.png",
+        "source": "https://dict.cbeta.org/?word={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "字辭典工具",
+        "title": "佛光大辭典英譯",
+        "description": "佛光大辭典英譯",
+        "icon": "一行辭典.png",
+        "source": "https://foguangdictionary.org/search?keyword={seletext}&searchType=headword",
+        "runMode": ""
+    },
+    {
+        "group": "字辭典工具",
+        "title": "簡要巴漢辭典",
+        "description": "莊春江讀經站 簡要巴漢辭典",
+        "icon": "cccdict.png",
+        "source": "https://agama.buddhason.org/study/dic.php?keyword={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "經典相關資源",
+        "title": "CBETA Online",
+        "description": "cbeta線上閱讀系統",
+        "icon": "cbetaonline.png",
+        "source": "{cbeta_online}",
+        "runMode": ""
+    },
+    {
+        "group": "經典相關資源",
+        "title": "大正藏圖檔",
+        "description": "大正藏圖檔",
+        "icon": "sutraimg.png",
+        "source": "{show_img}",
+        "runMode": ""
+    },
+    {
+        "group": "經典相關資源",
+        "title": "佛經目錄規範資料庫",
+        "description": "DILA 佛經目錄規範資料庫",
+        "icon": "authority.png",
+        "source": "https://authority.dila.edu.tw/catalog/search.php?title={sutratitle}",
+        "runMode": ""
+    },
+    {
+        "group": "經典相關資源",
+        "title": "經錄資料庫",
+        "description": "佛教藏經目錄數位資料庫",
+        "icon": "jinglu.png",
+        "source": "https://jinglu.cbeta.org/cgi-bin/jinglu.pl?sutra_name={sutratitle}",
+        "runMode": ""
+    },
+    {
+        "group": "經典相關資源",
+        "title": "本經相關論文查詢",
+        "description": "臺灣博碩士論文知識加值系統",
+        "icon": "ndltd.png",
+        "source": "https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=%22{sutratitle}%22.&searchmode=basic",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "Dharmamitra AI 白話翻譯",
+        "description": "Dharmamitra AI 白話翻譯",
+        "icon": "dharmamitra.png",
+        "source": "https://dharmamitra.org/zh-hant,{seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "古籍酷 AI 自動標點",
+        "description": "古籍酷 AI 自動標點",
+        "icon": "gjcool.png",
+        "source": "{auto_punct}",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "AI: Gemini",
+        "description": "AI: Gemini",
+        "icon": "gemini.png",
+        "source": "https://gemini.google.com/app",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "AI: ChatGPT",
+        "description": "AI: ChatGPT",
+        "icon": "chatgpt.png",
+        "source": "https://chatgpt.com/",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "AI: Claude",
+        "description": "AI: Claude",
+        "icon": "claude.png",
+        "source": "https://claude.ai/new",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "AI: Grok",
+        "description": "AI: Grok",
+        "icon": "grok.png",
+        "source": "https://grok.com/",
+        "runMode": ""
+    },
+    {
+        "group": "學術研究",
+        "title": "CBETA詞彙搜尋與分析",
+        "description": "CBETA詞彙搜尋與分析",
+        "icon": "a.png",
+        "source": "https://cbetaconcordance.dila.edu.tw/",
+        "runMode": ""
+    },
+    {
+        "group": "學術研究",
+        "title": "次世代デジタルライブラリー",
+        "description": "下一代數位圖書館",
+        "icon": "a.png",
+        "source": "https://lab.ndl.go.jp/dl/fulltext?keyword={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "通用工具",
+        "title": "Google 搜尋",
+        "description": "Google 搜尋",
+        "icon": "google.png",
+        "source": "https://www.google.com/search?q={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "通用工具",
+        "title": "維基百科",
+        "description": "維基百科 搜尋",
+        "icon": "wikipedia.png",
+        "source": "https://zh.wikipedia.org/wiki/{seletext}",
+        "runMode": ""
+    }
+]
