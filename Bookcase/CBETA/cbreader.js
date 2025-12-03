@@ -1289,6 +1289,7 @@ function SetupDisplay()
 */
 
 // 應該沒用了
+/*
 function get_linehead() {
   const lineheads = document.querySelectorAll('.linehead');
   if (!lineheads || lineheads.length === 0) return '';
@@ -1325,3 +1326,4 @@ function get_linehead() {
     return '';
   }
 }
+*/

@@ -35,7 +35,7 @@
         "group": "字辭典工具",
         "title": "漢文字詞資訊網",
         "description": "CBETA 漢文字詞資訊網",
-        "icon": "次世代.png",
+        "icon": "cbdict.png",
         "source": "https://dict.cbeta.org/?word={seletext}",
         "runMode": ""
     },
@@ -43,7 +43,7 @@
         "group": "字辭典工具",
         "title": "佛光大辭典英譯",
         "description": "佛光大辭典英譯",
-        "icon": "一行辭典.png",
+        "icon": "fgdicten.png",
         "source": "https://foguangdictionary.org/search?keyword={seletext}&searchType=headword",
         "runMode": ""
     },
@@ -147,7 +147,7 @@
         "group": "學術研究",
         "title": "CBETA詞彙搜尋與分析",
         "description": "CBETA詞彙搜尋與分析",
-        "icon": "a.png",
+        "icon": "cbetaconcordance.png",
         "source": "https://cbetaconcordance.dila.edu.tw/",
         "runMode": ""
     },
@@ -155,7 +155,7 @@
         "group": "學術研究",
         "title": "次世代デジタルライブラリー",
         "description": "下一代數位圖書館",
-        "icon": "a.png",
+        "icon": "ndl.png",
         "source": "https://lab.ndl.go.jp/dl/fulltext?keyword={seletext}",
         "runMode": ""
     },
