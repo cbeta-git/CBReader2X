@@ -1110,6 +1110,14 @@ function CiteCopy()
 
 		clip_area.remove();	// 若先移除 textarea , IE 重新設置選擇區會有問題
 	}
+	
+	this.get_linedata = function() {
+		if(_get_range() == false) {
+			return;
+		}
+		var linedata = _get_linedata();
+		return linedata;
+	}
 
 	// 引用複製
 	this.go = function()
@@ -1279,3 +1287,41 @@ function SetupDisplay()
 	FirstRun = false;
 }
 */
+
+// 應該沒用了
+function get_linehead() {
+  const lineheads = document.querySelectorAll('.linehead');
+  if (!lineheads || lineheads.length === 0) return '';
+
+  // 檢查第一個 span 是否隱藏
+  let bShowLineHead = true;
+  if(lineheads[0].style.display == "none") bShowLineHead = false;
+
+  if(bShowLineHead == false) {
+  	// 暫時顯示
+  	lineheads.forEach(span => span.style.display = 'inline');
+  }
+
+  let closest = null;
+  let minDistance = Infinity;
+
+  lineheads.forEach(span => {
+    const rect = span.getBoundingClientRect();
+    if (rect.top >= 0 && rect.top < minDistance) {
+      minDistance = rect.top;
+      closest = span;
+    }
+  });
+
+  if(bShowLineHead == false) {
+  	// 還原
+  	lineheads.forEach(span => span.style.display = 'none');
+  }
+  
+
+  if (closest) {
+    return closest.textContent.trim().replace('║', '');
+  } else {
+    return '';
+  }
+}
