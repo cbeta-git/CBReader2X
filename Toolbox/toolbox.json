@@ -10,15 +10,15 @@
     {
         "group": "字辭典工具",
         "title": "一行辭典",
-        "description": "獅子吼站一行辭典",
+        "description": "一行佛學辭典",
         "icon": "liondict.png",
         "source": "https://buddhaspace.org/dict/index.php?keyword={seletext}",
         "runMode": ""
     },
     {
         "group": "字辭典工具",
-        "title": "DILA 佛學術語字辭典",
-        "description": "DILA 佛學術語字辭典",
+        "title": "佛學術語辭典",
+        "description": "DILA佛學術語字辭典",
         "icon": "diladict.png",
         "source": "https://glossaries.dila.edu.tw/search?locale=zh-TW&term={seletext}",
         "runMode": ""
@@ -26,23 +26,23 @@
     {
         "group": "字辭典工具",
         "title": "異體字字典",
-        "description": "異體字字典",
+        "description": "教育部異體字字典",
         "icon": "moedict.png",
         "source": "https://dict.variants.moe.edu.tw/search.jsp?QTP=1&WORD={selechar}",
         "runMode": ""
     },
     {
         "group": "字辭典工具",
-        "title": "漢文字詞資訊網",
-        "description": "CBETA 漢文字詞資訊網",
+        "title": "漢文字詞資訊",
+        "description": "CBETA漢文字詞資訊網",
         "icon": "cbdict.png",
         "source": "https://dict.cbeta.org/?word={seletext}",
         "runMode": ""
     },
     {
         "group": "字辭典工具",
-        "title": "佛光大辭典英譯",
-        "description": "佛光大辭典英譯",
+        "title": "英譯佛光辭典",
+        "description": "英譯佛光大辭典",
         "icon": "fgdicten.png",
         "source": "https://foguangdictionary.org/search?keyword={seletext}&searchType=headword",
         "runMode": ""
@@ -50,7 +50,7 @@
     {
         "group": "字辭典工具",
         "title": "簡要巴漢辭典",
-        "description": "莊春江讀經站 簡要巴漢辭典",
+        "description": "莊春江簡要巴漢辭典",
         "icon": "cccdict.png",
         "source": "https://agama.buddhason.org/study/dic.php?keyword={seletext}",
         "runMode": ""
@@ -58,7 +58,7 @@
     {
         "group": "經典相關資源",
         "title": "CBETA Online",
-        "description": "cbeta線上閱讀系統",
+        "description": "CBETA 線上閱讀系統",
         "icon": "cbetaonline.png",
         "source": "{cbeta_online}",
         "runMode": ""
@@ -73,8 +73,8 @@
     },
     {
         "group": "經典相關資源",
-        "title": "佛經目錄規範資料庫",
-        "description": "DILA 佛經目錄規範資料庫",
+        "title": "佛經目錄規範",
+        "description": "DILA佛經目錄規範資料庫",
         "icon": "authority.png",
         "source": "https://authority.dila.edu.tw/catalog/search.php?title={sutratitle}",
         "runMode": ""
@@ -89,23 +89,39 @@
     },
     {
         "group": "經典相關資源",
-        "title": "本經相關論文查詢",
-        "description": "臺灣博碩士論文知識加值系統",
+        "title": "本經相關論文",
+        "description": "博碩士論文-本經相關論文",
         "icon": "ndltd.png",
         "source": "https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=%22{sutratitle}%22.&searchmode=basic",
         "runMode": ""
     },
     {
+        "group": "經典相關資源",
+        "title": "本經相關書目",
+        "description": "臺大佛圖-本經相關書目",
+        "icon": "ntubl.png",
+        "source": "https://buddhism.lib.ntu.edu.tw/search/default.jsp?step=1&qf=TOPIC&q={sutratitle}#1",
+        "runMode": ""
+    },
+    {
+        "group": "經典相關資源",
+        "title": "CBETA 討論區",
+        "description": "DILA 討論區-CBETA版",
+        "icon": "dhforum.png",
+        "source": "https://dhforum.dila.edu.tw/c/cbeta/5",
+        "runMode": ""
+    },
+    {
         "group": "AI 人工智慧",
-        "title": "Dharmamitra AI 白話翻譯",
-        "description": "Dharmamitra AI 白話翻譯",
+        "title": "Dharmamitra",
+        "description": "Dharmamitra白話翻譯",
         "icon": "dharmamitra.png",
         "source": "https://dharmamitra.org/zh-hant,{seletext}",
         "runMode": ""
     },
     {
         "group": "AI 人工智慧",
-        "title": "古籍酷 AI 自動標點",
+        "title": "AI 自動標點",
         "description": "古籍酷 AI 自動標點",
         "icon": "gjcool.png",
         "source": "{auto_punct}",
@@ -145,7 +161,31 @@
     },
     {
         "group": "學術研究",
-        "title": "CBETA詞彙搜尋與分析",
+        "title": "博碩論文查詢",
+        "description": "博碩士論文知識加值系統",
+        "icon": "ndltd.png",
+        "source": "https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=%22{seletext}%22.&searchmode=basic",
+        "runMode": ""
+    },
+    {
+        "group": "學術研究",
+        "title": "臺大佛圖",
+        "description": "臺大佛學數位圖書館",
+        "icon": "ntubl.png",
+        "source": "https://buddhism.lib.ntu.edu.tw/search/default.jsp?step=1&qf=TOPIC&q={seletext}#1",
+        "runMode": ""
+    },
+    {
+        "group": "學術研究",
+        "title": "CiNii Research",
+        "description": "CiNii Research",
+        "icon": "cinii.png",
+        "source": "https://cir.nii.ac.jp/all?q={seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "學術研究",
+        "title": "詞彙搜尋分析",
         "description": "CBETA詞彙搜尋與分析",
         "icon": "cbetaconcordance.png",
         "source": "https://cbetaconcordance.dila.edu.tw/",
@@ -153,8 +193,8 @@
     },
     {
         "group": "學術研究",
-        "title": "次世代デジタルライブラリー",
-        "description": "下一代數位圖書館",
+        "title": "次世代圖書館",
+        "description": "次世代數位圖書館",
         "icon": "ndl.png",
         "source": "https://lab.ndl.go.jp/dl/fulltext?keyword={seletext}",
         "runMode": ""
@@ -170,7 +210,7 @@
     {
         "group": "通用工具",
         "title": "維基百科",
-        "description": "維基百科 搜尋",
+        "description": "維基百科搜尋",
         "icon": "wikipedia.png",
         "source": "https://zh.wikipedia.org/wiki/{seletext}",
         "runMode": ""
