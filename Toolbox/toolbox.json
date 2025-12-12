@@ -114,9 +114,17 @@
     {
         "group": "AI 人工智慧",
         "title": "Dharmamitra",
-        "description": "Dharmamitra白話翻譯",
+        "description": "Dharmamitra 白話翻譯",
         "icon": "dharmamitra.png",
         "source": "https://dharmamitra.org/zh-hant,{seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "AI 人工智慧",
+        "title": "語意搜尋",
+        "description": "CBETA 語意搜尋",
+        "icon": "cbss.png",
+        "source": "https://cbetaonline.dila.edu.tw/cbss/",
         "runMode": ""
     },
     {
