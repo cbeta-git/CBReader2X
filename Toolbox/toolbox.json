@@ -104,14 +104,6 @@
         "runMode": ""
     },
     {
-        "group": "經典相關資源",
-        "title": "CBETA 討論區",
-        "description": "DILA 討論區-CBETA版",
-        "icon": "dhforum.png",
-        "source": "https://dhforum.dila.edu.tw/c/cbeta/5",
-        "runMode": ""
-    },
-    {
         "group": "AI 人工智慧",
         "title": "Dharmamitra",
         "description": "Dharmamitra 白話翻譯",
@@ -221,6 +213,22 @@
         "description": "維基百科搜尋",
         "icon": "wikipedia.png",
         "source": "https://zh.wikipedia.org/wiki/{seletext}",
+        "runMode": ""
+    },
+    {
+        "group": "CBETA",
+        "title": "討論與回報",
+        "description": "討論區+問題回報",
+        "icon": "dhforum.png",
+        "source": "https://dhforum.dila.edu.tw/c/cbeta/5",
+        "runMode": ""
+    },
+    {
+        "group": "CBETA",
+        "title": "護持佛典永續",
+        "description": "護持正法佛典永續",
+        "icon": "cbdonate.png",
+        "source": "https://cbeta.org/donate/",
         "runMode": ""
     }
 ]
