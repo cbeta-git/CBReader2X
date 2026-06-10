@@ -74,6 +74,25 @@ function ShowLine() {
 	$("p.headname2").css("margin-inline-start", "0em");
 	$("p.headname3").css("margin-inline-start", "0em");
 	$("p.headname4").css("margin-inline-start", "0em");
+	$("p.headname5").css("margin-inline-start", "0em");
+	$("p.headname6").css("margin-inline-start", "0em");
+	$("p.headname7").css("margin-inline-start", "0em");
+	$("p.headname8").css("margin-inline-start", "0em");
+	$("p.headname9").css("margin-inline-start", "0em");
+	$("p.headname10").css("margin-inline-start", "0em");
+	$("p.headname11").css("margin-inline-start", "0em");
+	$("p.headname12").css("margin-inline-start", "0em");
+	$("p.headname13").css("margin-inline-start", "0em");
+	$("p.headname14").css("margin-inline-start", "0em");
+	$("p.headname15").css("margin-inline-start", "0em");
+	$("p.headname16").css("margin-inline-start", "0em");
+	$("p.headname17").css("margin-inline-start", "0em");
+	$("p.headname18").css("margin-inline-start", "0em");
+	$("p.headname19").css("margin-inline-start", "0em");
+	$("p.headname20").css("margin-inline-start", "0em");
+	$("p.headname21").css("margin-inline-start", "0em");
+	$("p.headname22").css("margin-inline-start", "0em");
+	$("p.headname23").css("margin-inline-start", "0em");
 	$("p.byline").css("margin-inline-start", "0em");
 
 	// 最後把 <p> <div> 各標記 都換成 <span>
@@ -184,6 +203,25 @@ function ShowPara() {
 	$("p.headname2").css("margin-inline-start", "2em");
 	$("p.headname3").css("margin-inline-start", "3em");
 	$("p.headname4").css("margin-inline-start", "4em");
+	$("p.headname5").css("margin-inline-start", "5em");
+	$("p.headname6").css("margin-inline-start", "6em");
+	$("p.headname7").css("margin-inline-start", "7em");
+	$("p.headname8").css("margin-inline-start", "8em");
+	$("p.headname9").css("margin-inline-start", "9em");
+	$("p.headname10").css("margin-inline-start", "10em");
+	$("p.headname11").css("margin-inline-start", "11em");
+	$("p.headname12").css("margin-inline-start", "12em");
+	$("p.headname13").css("margin-inline-start", "13em");
+	$("p.headname14").css("margin-inline-start", "14em");
+	$("p.headname15").css("margin-inline-start", "15em");
+	$("p.headname16").css("margin-inline-start", "16em");
+	$("p.headname17").css("margin-inline-start", "17em");
+	$("p.headname18").css("margin-inline-start", "18em");
+	$("p.headname19").css("margin-inline-start", "19em");
+	$("p.headname20").css("margin-inline-start", "20em");
+	$("p.headname21").css("margin-inline-start", "21em");
+	$("p.headname22").css("margin-inline-start", "22em");
+	$("p.headname23").css("margin-inline-start", "23em");
 	$("p.byline").css("text-align", "right");
 
 	$(".linehead").css("display", "none");
